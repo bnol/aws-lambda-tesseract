@@ -16,13 +16,24 @@ export async function getExecutablePath(): Promise<string> {
 export async function getTextFromImage(filePath: string): Promise<string> {
   await extract({file: inputPath, cwd: '/tmp'});
 
-  const stdout = execFileSync(outputPath, [filePath, 'stdout', '-l', 'eng', '-c', 'tessedit_char_whitelist=123456789abcdefghijklmnopqrstuvwxyz'], {
-    cwd: '/tmp/tesseract-standalone',
-    env: {
-      LD_LIBRARY_PATH: './lib',
-      TESSDATA_PREFIX: './tessdata'
+  const stdout = execFileSync(
+    outputPath,
+    [
+      filePath,
+      'stdout',
+      '-l',
+      'eng',
+      '-c',
+      'tessedit_char_whitelist=0123456789abcdefghijklmnopqrstuvwxyz'
+    ],
+    {
+      cwd: '/tmp/tesseract-standalone',
+      env: {
+        LD_LIBRARY_PATH: './lib',
+        TESSDATA_PREFIX: './tessdata'
+      }
     }
-  });
+  );
 
   execSync(`rm ${filePath}`);
 

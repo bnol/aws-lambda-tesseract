@@ -1,13 +1,12 @@
 {
   "name": "@bnol/aws-lambda-tesseract",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "6 MB Tesseract 4.1 (with English training data) to fit inside AWS Lambda",
   "license": "MIT",
   "repository": "shelfio/aws-lambda-tesseract",
   "author": {
-    "name": "Vlad Holubiev",
-    "email": "vlad@shelf.io",
-    "url": "shelf.io"
+    "name": "BnoL",
+    "email": "bnol.vn@gmail.com"
   },
   "engines": {
     "node": ">=12"
